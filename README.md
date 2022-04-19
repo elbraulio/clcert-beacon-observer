@@ -26,6 +26,6 @@ Instant instant = Instant
 PulseContainer pulseContainer = beaconObserver.pulseBefore(instant);
 ```
 
-See the response structure here.
+See the response structure in PulseContainerDto [here](https://github.com/elbraulio/clcert-beacon-observer/blob/master/src/main/java/com/elbraulio/clcert/beacon/dto/PulseContainerDto.java).
 
-See the supported calls here.
+See the supported calls in BeaconObserver [here](https://github.com/elbraulio/clcert-beacon-observer/blob/master/src/main/java/com/elbraulio/clcert/beacon/BeaconObserver.java).
