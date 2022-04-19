@@ -8,7 +8,7 @@ the [CLCERT Beacon service](https://random.uchile.cl/using/#desarrolladores).
 Pretty simple to use:
 
 ```
-// get and observer.
+// get an observer.
 BeaconObserver beaconObserver = BeaconFactory.observer();
 
 // ask for randomness.
@@ -26,6 +26,8 @@ Instant instant = Instant
 PulseContainer pulseContainer = beaconObserver.pulseBefore(instant);
 ```
 
-See the response structure in PulseContainerDto [here](https://github.com/elbraulio/clcert-beacon-observer/blob/master/src/main/java/com/elbraulio/clcert/beacon/dto/PulseContainerDto.java).
+See the response structure in:
+- [PulseContainer](https://github.com/elbraulio/clcert-beacon-observer/blob/master/src/main/java/com/elbraulio/clcert/beacon/PulseContainer.java).
+- [Pulse](https://github.com/elbraulio/clcert-beacon-observer/blob/master/src/main/java/com/elbraulio/clcert/beacon/Pulse.java)
 
 See the supported calls in BeaconObserver [here](https://github.com/elbraulio/clcert-beacon-observer/blob/master/src/main/java/com/elbraulio/clcert/beacon/BeaconObserver.java).

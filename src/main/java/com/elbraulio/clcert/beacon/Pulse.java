@@ -4,7 +4,7 @@ import java.time.Instant;
 import java.util.List;
 
 /**
- * Pulse with the random chain at a certain time.
+ * Pulse with the random value at a certain time.
  */
 public interface Pulse {
     String getUri();
