@@ -35,4 +35,12 @@ public interface BeaconObserver {
      * @throws IOException when connection fails.
      */
     PulseContainer pulseNear(Instant instant) throws IOException;
+
+    /**
+     * @param chainIndex chain id.
+     * @param pulseIndex pulse id.
+     * @return {@link Pulse} at the specified chain at the especified index.
+     * @throws IOException when connection fails.
+     */
+    PulseContainer pulseFromChain(Long chainIndex, Long pulseIndex) throws IOException;
 }

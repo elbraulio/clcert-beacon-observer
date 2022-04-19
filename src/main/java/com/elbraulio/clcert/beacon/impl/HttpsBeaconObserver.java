@@ -47,6 +47,11 @@ public final class HttpsBeaconObserver implements BeaconObserver {
         return processRequest(() -> executePulseNearRequest(instant));
     }
 
+    @Override
+    public PulseContainer pulseFromChain(final Long chainIndex, final Long pulseIndex) throws IOException {
+        return processRequest(() -> executePulseFromChainRequest(chainIndex, pulseIndex));
+    }
+
     private PulseContainer processRequest(final CheckedIOExceptionSupplier<CloseableHttpResponse> closeableHttpResponseSupplier) throws IOException {
         try (final CloseableHttpResponse response = closeableHttpResponseSupplier.get()) {
             return pulseContainerBuilder.fromEntity(response.getEntity());
@@ -67,5 +72,9 @@ public final class HttpsBeaconObserver implements BeaconObserver {
 
     private CloseableHttpResponse executePulseAfterRequest(final Instant instant) throws IOException {
         return responseSupplier.apply(BeaconEndpoints.pulseAfter(instant.toEpochMilli())).get();
+    }
+
+    private CloseableHttpResponse executePulseFromChainRequest(final Long chainIndex, final Long pulseIndex) throws IOException {
+        return responseSupplier.apply(BeaconEndpoints.pulseFromChain(chainIndex, pulseIndex)).get();
     }
 }

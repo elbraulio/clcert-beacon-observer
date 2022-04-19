@@ -49,6 +49,13 @@ public class HttpsBeaconObserverTest {
         assertNotNull(pulseContainer);
     }
 
+    @Test
+    public void pulseFromChain_return_container() throws IOException {
+        final PulseContainer pulseContainer = beaconObserver.pulseFromChain(1L, 1L);
+
+        assertNotNull(pulseContainer);
+    }
+
     private void assertNotNull(final PulseContainer pulseContainer) {
         Assert.assertNotNull(pulseContainer.getPulse());
         Assert.assertNotNull(pulseContainer.getPulse().getOutputValue());
