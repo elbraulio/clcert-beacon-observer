@@ -67,6 +67,8 @@ public class HttpsBeaconObserverTest {
         Assert.assertNotNull(pulseContainer.getPulse().getTimeStamp());
         Assert.assertNotNull(pulseContainer.getPulse().getUri());
         Assert.assertNotNull(pulseContainer.getPulse().getWitness());
+        Assert.assertNotNull(pulseContainer.getPulse().getListValues());
+        Assert.assertNotNull(pulseContainer.getPulse().getExternal());
     }
 
     private Instant utcNow() {

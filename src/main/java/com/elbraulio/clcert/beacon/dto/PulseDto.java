@@ -1,9 +1,11 @@
 package com.elbraulio.clcert.beacon.dto;
 
+import com.elbraulio.clcert.beacon.External;
+import com.elbraulio.clcert.beacon.ListValue;
 import com.elbraulio.clcert.beacon.Pulse;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.time.Instant;
+import java.util.List;
 
 public final class PulseDto implements Pulse {
 
@@ -23,6 +25,8 @@ public final class PulseDto implements Pulse {
     private final String hashedMessage;
     private final String witness;
     private final Long iterations;
+    private final List<ExternalDto> external;
+    private final List<ListValueDto> listValues;
 
     public PulseDto(final String uri,
                     final String version,
@@ -39,7 +43,9 @@ public final class PulseDto implements Pulse {
                     final String outputValue,
                     final String hashedMessage,
                     final String witness,
-                    final Long iterations) {
+                    final Long iterations,
+                    final List<ExternalDto> external,
+                    final List<ListValueDto> listValues) {
         this.uri = uri;
         this.version = version;
         this.cipherSuite = cipherSuite;
@@ -56,6 +62,8 @@ public final class PulseDto implements Pulse {
         this.hashedMessage = hashedMessage;
         this.witness = witness;
         this.iterations = iterations;
+        this.external = external;
+        this.listValues = listValues;
     }
 
     @Override
@@ -94,8 +102,8 @@ public final class PulseDto implements Pulse {
     }
 
     @Override
-    public LocalDateTime getTimeStamp() {
-        return LocalDateTime.parse(timeStamp, DateTimeFormatter.ISO_DATE_TIME);
+    public Instant getTimeStamp() {
+        return Instant.parse(timeStamp);
     }
 
     @Override
@@ -139,6 +147,16 @@ public final class PulseDto implements Pulse {
     }
 
     @Override
+    public List<? extends External> getExternal() {
+        return external;
+    }
+
+    @Override
+    public List<? extends ListValue> getListValues() {
+        return listValues;
+    }
+
+    @Override
     public String toString() {
         return "PulseDto{" +
                 "uri='" + uri + '\'' +
@@ -148,7 +166,7 @@ public final class PulseDto implements Pulse {
                 ", certificateId='" + certificateId + '\'' +
                 ", chainIndex=" + chainIndex +
                 ", pulseIndex=" + pulseIndex +
-                ", timeStamp='" + getTimeStamp() + '\'' +
+                ", timeStamp='" + timeStamp + '\'' +
                 ", localRandomValue='" + localRandomValue + '\'' +
                 ", precommitmentValue='" + precommitmentValue + '\'' +
                 ", statusCode=" + statusCode +
@@ -157,6 +175,8 @@ public final class PulseDto implements Pulse {
                 ", hashedMessage='" + hashedMessage + '\'' +
                 ", witness='" + witness + '\'' +
                 ", iterations=" + iterations +
+                ", external=" + external +
+                ", listValues=" + listValues +
                 '}';
     }
 }

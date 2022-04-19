@@ -1,6 +1,7 @@
 package com.elbraulio.clcert.beacon;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
+import java.util.List;
 
 /**
  * Pulse with the random chain at a certain time.
@@ -20,7 +21,7 @@ public interface Pulse {
 
     Long getPulseIndex();
 
-    LocalDateTime getTimeStamp();
+    Instant getTimeStamp();
 
     String getLocalRandomValue();
 
@@ -37,4 +38,9 @@ public interface Pulse {
     String getWitness();
 
     Long getIterations();
+
+    List<? extends External> getExternal();
+
+    List<? extends ListValue> getListValues();
+
 }
