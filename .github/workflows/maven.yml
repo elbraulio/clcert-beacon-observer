@@ -29,6 +29,3 @@ jobs:
         with:
           fail_ci_if_error: true
           version: "v0.1.15"
-        run: 'curl -Os https://uploader.codecov.io/latest/linux/codecov
-              chmod +x codecov
-              ./codecov'
