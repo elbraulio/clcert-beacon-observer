@@ -1,4 +1,4 @@
-[![Java CI with Maven](https://github.com/elbraulio/clcert-beacon-observer/actions/workflows/maven.yml/badge.svg?branch=master)](https://github.com/elbraulio/clcert-beacon-observer/actions/workflows/maven.yml) [![](https://jitpack.io/v/elbraulio/clcert-beacon-observer.svg)](https://jitpack.io/#elbraulio/clcert-beacon-observer)
+[![codebeat badge](https://codebeat.co/badges/2c8651d0-d4f1-4773-b059-7931aa28cbee)](https://codebeat.co/projects/github-com-elbraulio-clcert-beacon-observer-master) [![Java CI with Maven](https://github.com/elbraulio/clcert-beacon-observer/actions/workflows/maven.yml/badge.svg?branch=master)](https://github.com/elbraulio/clcert-beacon-observer/actions/workflows/maven.yml) [![](https://jitpack.io/v/elbraulio/clcert-beacon-observer.svg)](https://jitpack.io/#elbraulio/clcert-beacon-observer)
 
 # CLCERT Beacon Observer
 
