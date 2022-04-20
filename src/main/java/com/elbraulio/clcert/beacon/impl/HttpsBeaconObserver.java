@@ -19,7 +19,7 @@ public final class HttpsBeaconObserver implements BeaconObserver {
 
     /**
      * @param pulseContainerBuilder {@link GsonPulseContainerBuilder} Pulse builder.
-     * @param responseSupplier      {@link CheckedIOExceptionSupplier<PulseContainer>} supplies a Pulse response.
+     * @param responseSupplier      {@link CheckedIOExceptionSupplier} supplies a Pulse response.
      */
     public HttpsBeaconObserver(final PulseContainerBuilder pulseContainerBuilder,
                                final Function<URI, CheckedIOExceptionSupplier<CloseableHttpResponse>> responseSupplier) {
