@@ -1,3 +1,4 @@
+[![Java CI with Maven](https://github.com/elbraulio/clcert-beacon-observer/actions/workflows/maven.yml/badge.svg?branch=master)](https://github.com/elbraulio/clcert-beacon-observer/actions/workflows/maven.yml)
 # CLCERT Beacon Observer
 
 This is the **unofficial** Java API to consume
