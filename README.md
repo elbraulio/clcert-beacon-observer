@@ -1,8 +1,34 @@
-[![Java CI with Maven](https://github.com/elbraulio/clcert-beacon-observer/actions/workflows/maven.yml/badge.svg?branch=master)](https://github.com/elbraulio/clcert-beacon-observer/actions/workflows/maven.yml)
+[![Java CI with Maven](https://github.com/elbraulio/clcert-beacon-observer/actions/workflows/maven.yml/badge.svg?branch=master)](https://github.com/elbraulio/clcert-beacon-observer/actions/workflows/maven.yml) [![](https://jitpack.io/v/elbraulio/clcert-beacon-observer.svg)](https://jitpack.io/#elbraulio/clcert-beacon-observer)
+
 # CLCERT Beacon Observer
 
 This is the **unofficial** Java API to consume
 the [CLCERT Beacon service](https://random.uchile.cl/using/#desarrolladores).
+
+## Install
+
+Step 1: Add the JitPack repository to your build file
+
+```xml
+
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+```
+
+Step 2: Add the dependency
+
+```xml
+
+<dependency>
+    <groupId>com.github.elbraulio</groupId>
+    <artifactId>clcert-beacon-observer</artifactId>
+    <version>0.1.0</version>
+</dependency>
+```
 
 ## How to use
 
@@ -28,7 +54,11 @@ PulseContainer pulseContainer = beaconObserver.pulseBefore(instant);
 ```
 
 See the response structure in:
-- [PulseContainer](https://github.com/elbraulio/clcert-beacon-observer/blob/master/src/main/java/com/elbraulio/clcert/beacon/PulseContainer.java).
+
+- [PulseContainer](https://github.com/elbraulio/clcert-beacon-observer/blob/master/src/main/java/com/elbraulio/clcert/beacon/PulseContainer.java)
+  .
 - [Pulse](https://github.com/elbraulio/clcert-beacon-observer/blob/master/src/main/java/com/elbraulio/clcert/beacon/Pulse.java)
 
-See the supported calls in BeaconObserver [here](https://github.com/elbraulio/clcert-beacon-observer/blob/master/src/main/java/com/elbraulio/clcert/beacon/BeaconObserver.java).
+See the supported calls in
+BeaconObserver [here](https://github.com/elbraulio/clcert-beacon-observer/blob/master/src/main/java/com/elbraulio/clcert/beacon/BeaconObserver.java)
+.
