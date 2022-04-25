@@ -26,7 +26,7 @@ Step 2: Add the dependency
 <dependency>
     <groupId>com.github.elbraulio</groupId>
     <artifactId>clcert-beacon-observer</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 
