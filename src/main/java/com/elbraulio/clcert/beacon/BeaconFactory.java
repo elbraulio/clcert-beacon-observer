@@ -1,8 +1,8 @@
 package com.elbraulio.clcert.beacon;
 
 import com.elbraulio.clcert.beacon.impl.BeaconHttpRequest;
-import com.elbraulio.clcert.beacon.impl.HttpsBeaconObserver;
 import com.elbraulio.clcert.beacon.impl.GsonPulseContainerBuilder;
+import com.elbraulio.clcert.beacon.impl.HttpsBeaconObserver;
 
 /**
  * Main factory to be used as API for the CLCERT Beacon service.

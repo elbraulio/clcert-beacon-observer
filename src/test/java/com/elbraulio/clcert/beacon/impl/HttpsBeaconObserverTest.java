@@ -29,6 +29,12 @@ public class HttpsBeaconObserverTest {
     }
 
     @Test
+    public void lastPulse_twice_call() throws IOException {
+        assertNotNull(beaconObserver.lastPulse());
+        assertNotNull(beaconObserver.lastPulse());
+    }
+
+    @Test
     public void pulseBefore_return_container() throws IOException {
         final PulseContainer pulseContainer = beaconObserver.pulseBefore(utcNow());
 

@@ -1,5 +1,6 @@
 package com.elbraulio.clcert.beacon.impl;
 
+import com.elbraulio.clcert.beacon.exception.ClcertBeaconObserverException;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.methods.RequestBuilder;
@@ -8,34 +9,33 @@ import org.apache.http.impl.client.HttpClients;
 
 import java.io.IOException;
 import java.net.URI;
-import java.util.function.Supplier;
 
 /**
  * General behavior of a request to the Beacon service using GET.
  */
 public final class BeaconHttpRequest implements CheckedIOExceptionSupplier<CloseableHttpResponse> {
 
-    private final Supplier<HttpUriRequest> httpUriRequestSupplier;
-    private final Supplier<CloseableHttpClient> httpClientSupplier;
+    private final URI uri;
+    private final CloseableHttpClient httpClient;
 
     /**
+     * Ctor.
+     *
      * @param uri to consume.
      */
     public BeaconHttpRequest(final URI uri) {
-        this(() -> RequestBuilder.get(uri).build(), HttpClients::createDefault);
+        this(uri, HttpClients.createDefault());
     }
 
     /**
-     * This constructor allows to customize the request and client.
-     * Useful for testing purposes.
+     * Ctor.
      *
-     * @param httpUriRequestSupplier supplies a {@link HttpUriRequest}.
-     * @param httpClientSupplier     supplies a {@link CloseableHttpClient}.
+     * @param uri        uri to reach GET Beacon service.
+     * @param httpClient {@link CloseableHttpClient} that will be closed after request.
      */
-    public BeaconHttpRequest(final Supplier<HttpUriRequest> httpUriRequestSupplier,
-                             final Supplier<CloseableHttpClient> httpClientSupplier) {
-        this.httpUriRequestSupplier = httpUriRequestSupplier;
-        this.httpClientSupplier = httpClientSupplier;
+    public BeaconHttpRequest(final URI uri, final CloseableHttpClient httpClient) {
+        this.uri = uri;
+        this.httpClient = httpClient;
     }
 
     /**
@@ -46,12 +46,12 @@ public final class BeaconHttpRequest implements CheckedIOExceptionSupplier<Close
      */
     @Override
     public CloseableHttpResponse get() throws IOException {
-        final HttpUriRequest request = httpUriRequestSupplier.get();
-        try (final CloseableHttpClient httpClient = httpClientSupplier.get()) {
-            final CloseableHttpResponse response = httpClient.execute(request);
+        final HttpUriRequest request = RequestBuilder.get(uri).build();
+        try (final CloseableHttpClient closeableHttpClient = httpClient) {
+            final CloseableHttpResponse response = closeableHttpClient.execute(request);
             final int statusCode = response.getStatusLine().getStatusCode();
             if (statusCode != 200) {
-                throw new RuntimeException(String.format("unexpected status code [%s]", statusCode));
+                throw new ClcertBeaconObserverException(String.format("unexpected status code [%s]", statusCode));
             }
             return response;
         }

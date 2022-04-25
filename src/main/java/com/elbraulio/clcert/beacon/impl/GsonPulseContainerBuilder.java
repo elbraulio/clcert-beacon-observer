@@ -2,6 +2,7 @@ package com.elbraulio.clcert.beacon.impl;
 
 import com.elbraulio.clcert.beacon.PulseContainer;
 import com.elbraulio.clcert.beacon.dto.PulseContainerDto;
+import com.elbraulio.clcert.beacon.exception.ClcertBeaconObserverException;
 import com.google.gson.Gson;
 import org.apache.http.HttpEntity;
 import org.apache.http.util.EntityUtils;
@@ -24,7 +25,7 @@ public final class GsonPulseContainerBuilder implements PulseContainerBuilder {
     @Override
     public PulseContainer fromEntity(final HttpEntity entity) throws IOException {
         if (isNull(entity)) {
-            throw new RuntimeException("null response from the server");
+            throw new ClcertBeaconObserverException("null response from the server");
         }
         return gson.fromJson(EntityUtils.toString(entity), PulseContainerDto.class);
     }
