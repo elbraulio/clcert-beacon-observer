@@ -2,7 +2,7 @@
 
 # CLCERT Beacon Observer
 
-This is the **unofficial** Java API to consume
+This is the **unofficial** Java SDK to consume
 the [CLCERT Beacon service](https://random.uchile.cl/using/#desarrolladores).
 
 ## Install
@@ -34,7 +34,7 @@ Step 2: Add the dependency
 
 Pretty simple to use:
 
-```
+```java
 // get an observer.
 BeaconObserver beaconObserver = BeaconFactory.observer();
 
@@ -44,7 +44,7 @@ PulseContainer pulseContainer = beaconObserver.lastPulse();
 
 You can ask for specific times as well. Always remember to use UTC.
 
-```
+```java
 Instant instant = Instant
                     .now()
                     .atOffset(ZoneOffset.UTC)

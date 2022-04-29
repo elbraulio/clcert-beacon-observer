@@ -5,7 +5,7 @@ import com.elbraulio.clcert.beacon.impl.GsonPulseContainerBuilder;
 import com.elbraulio.clcert.beacon.impl.HttpsBeaconObserver;
 
 /**
- * Main factory to be used as API for the CLCERT Beacon service.
+ * Main factory to be used as SDK for the CLCERT Beacon service.
  */
 public final class BeaconFactory {
 
